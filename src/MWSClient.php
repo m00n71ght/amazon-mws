@@ -7,6 +7,7 @@ use DateTimeZone;
 use MCS\MWSEndPoint;
 use League\Csv\Reader;
 use League\Csv\Writer;
+use League\Csv\Statement;
 use SplTempFileObject;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
