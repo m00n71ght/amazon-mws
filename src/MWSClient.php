@@ -1101,8 +1101,11 @@ class MWSClient{
                 $csv = Reader::createFromString($result);
                 $csv->setDelimiter("\t");
                 $headers = $csv->fetchOne();
+	    	$stmt = (new Statement())
+    			->offset(1);
+	    	$records = $stmt->process($csv);
                 $result = [];
-                foreach ($csv->setOffset(1)->fetchAll() as $row) {
+                foreach ($records as $row) {
                     $result[] = array_combine($headers, $row);
                 }
             }
